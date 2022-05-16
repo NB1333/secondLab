@@ -67,7 +67,7 @@ public class Result extends HttpServlet {
             out.println("<body>");
             out.println("<link rel=\"stylesheet\" href=\"style.css\">");
             out.println("<p>" + message + paramCheck.validate(resultData) + "</p><br>");
-            out.println("<button onclick=\"window.location.href='/secondLab_war_exploded/index.jsp';\">\n" +
+            out.println("<button onclick=\"window.location.href='/secondLab_war_exploded/';\">\n" +
                     "Go back\n" +
                     "</button>");
             out.println("</body>");
@@ -75,7 +75,7 @@ public class Result extends HttpServlet {
 
             for (String parametersName : parametersNames) {
                 Cookie param = new Cookie(parametersName, req.getParameter(parametersName));
-                //param.setValue(req.getParameter(parametersName));
+                param.setValue(req.getParameter(parametersName));
                 param.setMaxAge(48 * 60 * 60);
                 param.setPath("\"http://localhost:8080/secondLab_war_exploded/\"");
                 resp.addCookie(param);
