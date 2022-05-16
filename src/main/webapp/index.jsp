@@ -14,23 +14,25 @@
             Cookie param = new Cookie(parametersName, request.getParameter(parametersName));
             param.setValue(request.getParameter(parametersName));
             param.setMaxAge(48 * 60 * 60);
-            param.setPath("\"http://localhost:8080/secondLab_war_exploded/\"");
             response.addCookie(param);
         }
     %>
     <p>Input four params</p>
     <label>
         <input type="number" step="0.01" name="aParam" placeholder="Enter first param..." required="required"
-               value="<%!%>">
+               value="<%= request.getParameter("aParam")%>">
     </label><br>
     <label>
-        <input type="number" step="0.01" name="bParam" placeholder="Enter second param..." required="required">
+        <input type="number" step="0.01" name="bParam" placeholder="Enter second param..." required="required"
+               value="<%= request.getParameter("bParam")%>">
     </label><br>
     <label>
-        <input type="number" step="0.01" name="cParam" placeholder="Enter third param..." required="required">
+        <input type="number" step="0.01" name="cParam" placeholder="Enter third param..." required="required"
+               value="<%= request.getParameter("cParam")%>">
     </label><br>
     <label>
-        <input type="number" step="0.01" name="dParam" placeholder="Enter fourth param..." required="required">
+        <input type="number" step="0.01" name="dParam" placeholder="Enter fourth param..." required="required"
+               value="<%= request.getParameter("dParam")%>">
     </label><br>
 
     <p>Choose formula:</p>
