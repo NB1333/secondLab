@@ -6,10 +6,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/calculate">
+<form method="GET" action="${pageContext.request.contextPath}/calculate">
+    <%
+      String[] parametersNames = new String[]{"aParam", "bParam", "cParam", "dParam"};
+
+        for (String parametersName : parametersNames) {
+            Cookie param = new Cookie(parametersName, request.getParameter(parametersName));
+            param.setValue(request.getParameter(parametersName));
+            param.setMaxAge(48 * 60 * 60);
+            param.setPath("\"http://localhost:8080/secondLab_war_exploded/\"");
+            response.addCookie(param);
+        }
+    %>
     <p>Input four params</p>
     <label>
-        <input type="number" step="0.01" name="aParam" placeholder="Enter first param..." required="required">
+        <input type="number" step="0.01" name="aParam" placeholder="Enter first param..." required="required"
+               value="<%!%>">
     </label><br>
     <label>
         <input type="number" step="0.01" name="bParam" placeholder="Enter second param..." required="required">
@@ -35,9 +47,15 @@
         <span class="checkmark"></span>
     </label>
 
+    <%!
+
+
+
+
+
+    %>
+
     <input type="submit" value="Calculate"/>
 </form>
-
-
 </body>
 </html>

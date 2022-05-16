@@ -1,6 +1,7 @@
 package com.example.secondlab;
 
-public class FirstFormula {
+public class FirstFormula implements IFormula {
+    @Override
     public double result(double a, double b, double c, double d) {
         double result = 0;
 
